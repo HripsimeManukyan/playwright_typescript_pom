@@ -42,7 +42,7 @@ export default class HomePage {
   async verifySuccessMessage() {
     return await this.successMessage.isVisible();
   }
-  
+
   async clickFirstProductViewButton() {
     await this.viewProductButton.click();
   }

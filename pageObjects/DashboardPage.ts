@@ -7,6 +7,7 @@ export default class DashboardPage {
   readonly loggedInUser: Locator;
   readonly deleteAccountButton: Locator;
   readonly acccountDeletedMessage: Locator;
+  readonly cartButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -15,6 +16,7 @@ export default class DashboardPage {
     this.loggedInUser = page.locator('a:has-text("Logged in as John Doe")');
     this.deleteAccountButton = page.locator('a[href="/delete_account"]');
     this.acccountDeletedMessage = page.locator('h2:has-text("Account Deleted!")');
+    this.cartButton = page.getByRole('link', { name: 'Cart' });
   }
 
   async isAccountCreatedMessageVisible() {
@@ -27,6 +29,10 @@ export default class DashboardPage {
 
   async isLoggedInUserVisible() {
     return await this.loggedInUser.isVisible();
+  }
+
+  async clickCartButton() {
+    await this.cartButton.click();
   }
 
   async clickDeleteAccountButton() {

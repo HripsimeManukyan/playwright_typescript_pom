@@ -11,3 +11,12 @@ export function generateRandomName() {
 export function generateMessage() {
   return faker.lorem.sentence();
 }
+export function generateCardDetails() {
+  return {
+    name: faker.person.fullName(),
+    cardNumber: faker.finance.creditCardNumber('################'),
+    cvc: faker.finance.creditCardCVV(),
+    expMonth: String(faker.number.int({ min: 1, max: 12 })).padStart(2, '0'),
+    expYear: String(new Date().getFullYear() + 2),
+  };
+}

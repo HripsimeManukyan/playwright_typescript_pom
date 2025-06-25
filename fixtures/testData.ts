@@ -19,4 +19,8 @@ export const testData = {
   city: 'New York',
   zipcode: '110001',
   mobileNumber: '+919876543210',
+  productName: 'Blue Top',
+  price: 'Rs. 500',
+  quantity: '1',
+  total: 'Rs. 500',
 };

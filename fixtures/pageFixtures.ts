@@ -8,6 +8,8 @@ import ProductsPage from '../pageObjects/ProductsPage';
 import ProductsDetailsPage from '../pageObjects/ProductsDetailsPage';
 import SearchPage from '../pageObjects/SearchPage';
 import CartPage from '../pageObjects/CartPage';
+import CheckoutPage from '../pageObjects/CheckoutPage';
+import PaymentPage from '../pageObjects/PaymentPage';
 
 interface PageFixtures {
   homePage: HomePage;
@@ -19,6 +21,8 @@ interface PageFixtures {
   productsDetailsPage: ProductsDetailsPage;
   searchPage: SearchPage;
   cartPage: CartPage;
+  checkoutPage: CheckoutPage;
+  paymentPage: PaymentPage;
 }
 const test = base.extend<PageFixtures>({
   homePage: async ({ page }, use) => {
@@ -56,6 +60,14 @@ const test = base.extend<PageFixtures>({
   cartPage: async ({ page }, use) => {
     const cartPage = new CartPage(page);
     await use(cartPage);
+  },
+  checkoutPage: async ({ page }, use) => {
+    const checkoutPage = new CheckoutPage(page);
+    await use(checkoutPage);
+  },
+  paymentPage: async ({ page }, use) => {
+    const paymentPage = new PaymentPage(page);
+    await use(paymentPage);
   },
 });
 

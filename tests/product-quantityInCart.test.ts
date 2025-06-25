@@ -2,7 +2,7 @@ import { test } from '../fixtures/pageFixtures';
 import { expect } from '@playwright/test';
 import { logStep } from '../utils/logger';
 
-test.only('Verify Product Quantity in Cart', async ({
+test('Verify Product Quantity in Cart', async ({
   homePage,
   cartPage,
   productsDetailsPage,

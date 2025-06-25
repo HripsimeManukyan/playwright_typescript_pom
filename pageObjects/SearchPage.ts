@@ -23,7 +23,7 @@ export default class SearchPage {
   async isSearchedProductsVisible() {
     return this.searchedProducts.isVisible();
   }
-  
+
   async areAllSearchResultsVisible() {
     const resultCount = await this.searchResults.count();
     if (resultCount === 0) return false;
