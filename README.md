@@ -15,7 +15,7 @@ This project is an end-to-end automation test suite using **Playwright with Type
 - 🔹 End-to-end flows:
 - 🧱 Page Object Model (POM) design for maintainability
 - 🔁 Custom fixtures for reusable page objects
-- ✉️ Dynamic email generation for fresh test data
+- ✉️ Dynamic test data generation
 - 📋 Step-by-step logging in the terminal
 
 ---
@@ -37,10 +37,7 @@ This project is an end-to-end automation test suite using **Playwright with Type
 ├── node_modules/
 ├── pageObjects/             # Page Object Model classes
 ├── testFiles/               # Sample or data files
-│   └── sample.txt
 ├── tests/                   # Test files
-│   ├── contactForm.test.ts
-│   └── signupFlow.test.ts
 ├── utils/                   # Utilities (email generator, logger)
 ├── .gitignore
 ├── package.json
