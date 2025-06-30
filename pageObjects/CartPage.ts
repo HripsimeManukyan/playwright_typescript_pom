@@ -7,6 +7,7 @@ export default class CartPage {
   readonly cartTitle: Locator;
   readonly checkoutButton: Locator;
   readonly checkoutModal: Locator;
+  readonly cartButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -15,6 +16,8 @@ export default class CartPage {
     this.cartTitle = page.locator('.breadcrumb li.active');
     this.checkoutButton = page.locator('a.btn.btn-default.check_out');
     this.checkoutModal = page.locator('#checkoutModal a:has-text("Register / Login")');
+    this.cartButton = page.getByRole('link', { name: 'Cart' });
+
   }
 
   async navigateToCartPage() {
@@ -54,4 +57,30 @@ export default class CartPage {
     await expect(productRow).toBeVisible();
     await expect(productRow.locator('.cart_quantity button')).toHaveText(expectedQuantity);
   }
+
+  async clickCartButton() {
+    await this.cartButton.click();
+  }
+
+  async removeMultipleProducts(productNames: string[]): Promise<void> {
+    for (const productName of productNames) {
+      const rowCount = await this.productRows.count();
+
+      for (let i = 0; i < rowCount; i++) {
+        const row = this.productRows.nth(i);
+        const nameElement = row.locator(`text=${productName}`);
+
+        if (await nameElement.isVisible()) {
+          const deleteButton = row.locator('.cart_quantity_delete');
+          await deleteButton.click();
+          break;
+        }
+      }
+    }
+  }
+
+ async assertCartIsEmpty(): Promise<void> {
+    await expect(this.page.locator('text=Cart is empty')).toBeVisible();
+  }
+
 }
