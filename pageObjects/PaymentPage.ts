@@ -21,7 +21,6 @@ export default class PaymentPage {
     this.cardCVCInput = page.locator('input[name="cvc"]');
     this.payAndConfirmButton = page.locator('button[data-qa="pay-button"]');
     this.paymentSuccessMessage = page.getByRole('heading', { name: 'Order Placed!' });
-
   }
 
   async verifyPaymentPageIsDisplayed(): Promise<void> {

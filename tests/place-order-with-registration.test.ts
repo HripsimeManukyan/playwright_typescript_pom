@@ -27,7 +27,7 @@ test.only('Place order while registering during checkout', async ({
   await productsPage.addFirstItemToCart();
 
   logStep('Navigating to cart page');
- await  cartPage.navigateToCartPage();
+  await cartPage.navigateToCartPage();
   await cartPage.verifyCartPageIsDisplayed;
   await cartPage.clickCheckoutButton();
   await cartPage.clickRegisterLoginButtonFromCheckoutModal();
@@ -70,7 +70,11 @@ test.only('Place order while registering during checkout', async ({
 
   logStep('Navigate to Checkout page');
   await cartPage.clickCheckoutButton();
-  await checkoutPage.verifyAddressDetails(testData.firstName, testData.country, testData.mobileNumber);
+  await checkoutPage.verifyAddressDetails(
+    testData.firstName,
+    testData.country,
+    testData.mobileNumber
+  );
   await checkoutPage.verifyOrderReview(
     testData.productName,
     testData.price,

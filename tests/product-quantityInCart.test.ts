@@ -2,11 +2,7 @@ import { test } from '../fixtures/pageFixtures';
 import { expect } from '@playwright/test';
 import { logStep } from '../utils/logger';
 
-test('Verify Product Quantity in Cart', async ({
-  homePage,
-  cartPage,
-  productsDetailsPage,
-}) => {
+test('Verify Product Quantity in Cart', async ({ homePage, cartPage, productsDetailsPage }) => {
   logStep('Navigating to Home Page');
   await homePage.navigateToHomePage();
   expect(await homePage.isLogoVisible()).toBe(true);
